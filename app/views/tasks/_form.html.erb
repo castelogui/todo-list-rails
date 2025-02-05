@@ -1,0 +1,36 @@
+<%= form_with(model: task, class: "max-w-lg mx-auto bg-gray-900 p-6 rounded-lg shadow-md space-y-4") do |form| %>
+<% if task.errors.any? %>
+<div class="p-4 mb-4 text-red-700 bg-red-100 rounded-lg">
+  <h2 class="font-semibold"><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+  <ul class="list-disc pl-5">
+    <% task.errors.each do |error| %>
+    <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div>
+  <%= form.label :name, class: "block font-medium text-gray-700" %>
+  <%= form.text_field :name, class: "w-full p-2 border rounded-lg shadow-sm focus:ring focus:ring-indigo-300" %>
+</div>
+
+<div>
+  <%= form.label :description, class: "block font-medium text-gray-700" %>
+  <%= form.text_area :description, class: "w-full p-2 border rounded-lg shadow-sm focus:ring focus:ring-indigo-300" %>
+</div>
+
+<div>
+  <%= form.label :delivery_date, class: "block font-medium text-gray-700" %>
+  <%= form.date_field :delivery_date, class: "w-full p-2 border rounded-lg shadow-sm focus:ring focus:ring-indigo-300" %>
+</div>
+
+<div>
+  <%= form.label :delivered_to, class: "block font-medium text-gray-700" %>
+  <%= form.date_field :delivered_to, class: "w-full p-2 border rounded-lg shadow-sm focus:ring focus:ring-indigo-300" %>
+</div>
+
+<div class="flex justify-end">
+  <%= form.submit "Create Task", class: "px-4 py-2 bg-indigo-500 text-white rounded-lg shadow hover:bg-indigo-600 transition" %>
+</div>
+<% end %>

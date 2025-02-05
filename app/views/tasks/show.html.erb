@@ -1,0 +1,13 @@
+<p class="text-green-600"><%= notice %></p>
+
+<div class="max-w-3xl mx-auto p-6 bg-gray-900 rounded-lg shadow-md">
+  <%= render @task %>
+
+  <div class="mt-6 flex justify-between ">
+    <%= link_to "Edit this task", edit_task_path(@task), class: "px-4 py-2 bg-blue-500 text-white rounded-lg shadow hover:bg-blue-600 transition" %>
+
+    <%= link_to "Back to tasks", tasks_path, class: "px-4 py-2 bg-gray-500 text-white rounded-lg shadow hover:bg-gray-600 transition" %>
+
+    <%= button_to "Destroy this task", @task, method: :delete, class: "px-4 py-2 bg-red-500 text-white rounded-lg shadow hover:bg-red-600 transition", data: { confirm: "Are you sure?" } %>
+  </div>
+</div>
